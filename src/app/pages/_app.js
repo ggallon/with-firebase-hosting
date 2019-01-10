@@ -1,24 +1,30 @@
-import React from 'react'
-import App, { Container } from 'next/app'
-import Header from '../components/Header'
-
-class Layout extends React.Component {
-  render() {
-    const { children } = this.props
-    return <main>
-      <Header />
-      {children}
-    </main>
-  }
-}
+import React from 'react';
+import App, { Container } from 'next/app';
+import Head from 'next/head';
+import Header from '../components/Header';
 
 export default class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props
-    return <Container>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Container>
+  static async getInitialProps({ Component, router, ctx }) {
+    let pageProps = {};
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+
+    return { pageProps };
   }
-}
+
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return (
+      <Container>
+        <Head>
+          <title>This page has a title 🤔</title>
+        </Head>
+        <Header />
+        <Component {...pageProps} />
+      </Container>
+    );
+  }
+};
