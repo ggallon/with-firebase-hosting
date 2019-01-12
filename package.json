@@ -2,6 +2,7 @@
   "name": "with-firebase-hosting",
   "version": "4.0.1",
   "description": "Host Next.js SSR app on Firebase Cloud Functions with Firebase Hosting redirects.",
+  "license": "MIT",
   "engines": {
     "node": "8"
   },
