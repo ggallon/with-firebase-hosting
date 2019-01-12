@@ -20,7 +20,7 @@ export default class MyApp extends App {
     return (
       <Container>
         <Head>
-          <title>This page has a title 🤔</title>
+          <title>Firebase Next Hosting</title>
         </Head>
         <Header />
         <Component {...pageProps} />
