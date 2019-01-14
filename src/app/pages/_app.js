@@ -23,7 +23,10 @@ export default class MyApp extends App {
           <title>Firebase Next Hosting</title>
         </Head>
         <Header />
-        <Component {...pageProps} />
+        <main>
+          <Component {...pageProps} />
+        </main>
+        <noscript>Enable javascript to run this web app.</noscript>
       </Container>
     );
   }
