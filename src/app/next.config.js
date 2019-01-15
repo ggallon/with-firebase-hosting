@@ -3,11 +3,6 @@ const path = require('path');
 
 module.exports = {
   pageExtensions: ['jsx', 'js', 'mdx'],
-  distDir: '../../dist/functions/next'
-}
-
-module.exports = {
-  pageExtensions: ['jsx', 'js', 'mdx'],
   distDir: '../../dist/functions/next',
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
 
