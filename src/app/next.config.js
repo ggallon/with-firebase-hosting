@@ -1,9 +1,22 @@
+const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 
-module.exports = {
+module.exports = withBundleAnalyzer({
   pageExtensions: ['jsx', 'js', 'mdx'],
   distDir: '../../dist/functions/next',
+  analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
+  analyzeBrowser: ["browser", "both"].includes(process.env.BUNDLE_ANALYZE),
+  bundleAnalyzerConfig: {
+    server: {
+      analyzerMode: 'static',
+      reportFilename: '../bundles/server.html'
+    },
+    browser: {
+      analyzerMode: 'static',
+      reportFilename: '../bundles/client.html'
+    }
+  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
 
     if (!isServer && !dev) {
@@ -46,4 +59,4 @@ module.exports = {
     // Important: return the modified config
     return config
   },
-}
+});
