@@ -31,12 +31,12 @@ module.exports = {
           },
           icons: [
             {
-              src: path.resolve('./src/public/android-chrome-192x192'),
+              src: path.resolve('./src/public/android-chrome-192x192.png'),
               sizes: [192],
               destination: '/static'
             },
             {
-              src: path.resolve('./src/public/android-chrome-512x512'),
+              src: path.resolve('./src/public/android-chrome-512x512.png'),
               sizes: [512],
               destination: '/static'
             }
